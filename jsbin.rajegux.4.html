@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by facsimatyi (http://jsbin.com/rajegux/4/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Advent+Pro:100" rel="stylesheet">
+  <title>Színes Óra</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+#ora {
+  text-align: center;
+  position:relative;
+  top: 50%;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 80px;
+  margin-top:-40px;
+}
+html, body{
+  height: 100%;
+}
+
+</style>
+</head>
+<body>
+  <div id="ora">10:09:13</div>
+<script id="jsbin-javascript">
+function colorClock() {
+var date = new Date();
+
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds();
+
+if (hours < 10){
+  '0' + hours;
+}
+if (minutes < 10){
+  '0' + minutes;
+}
+if (seconds < 10){
+  '0' + seconds;
+}
+
+var clock = hours + ':' + minutes + ':' + seconds;
+  
+var hexColor ="#" + hours + minutes + seconds;
+  
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+  
+  document.body.style.background = hexColor;
+
+document.getElementById('ora').innerHTML = clock;
+  
+
+}
+colorClock();
+
+</script>
+</body>
+</html>
